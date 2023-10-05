@@ -1,6 +1,7 @@
 function Socials() {
   this.socials = document.querySelectorAll(".social");
   this.rects = document.querySelectorAll(".rects rect");
+  this.path = document.querySelector(".path");
 }
 
 Socials.prototype.startPosition = function () {   
@@ -50,6 +51,11 @@ Socials.prototype.animate = function() {
         autoAlpha: 1,
         scale: 0,
     })
+    .to(this.path, {
+        strokeDashoffset: 0,
+        ease: Sine.easeInOut,
+        duration: 0.9,
+    })
     .to(this.socials, {
         top: () => this.startPosition().top + gsap.utils.random(-3, 3),
         left: () => this.startPosition().left + gsap.utils.random(-3, 3),
@@ -58,7 +64,7 @@ Socials.prototype.animate = function() {
         stagger: 0.05,
         duration: 0.4,
         ease: Sine.easeInOut
-    })
+    }, "<")
     .to(this.socials, {
         delay: 0.4,
         top: (i) => this.endPosition()[i].top,

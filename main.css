@@ -81,3 +81,8 @@ section {
 .arc .rects rect {
     fill: none;
 }
+
+.arc .path {
+    stroke-dashoffset: 1751.7978515625;
+    stroke-dasharray: 1751.7978515625;
+}
