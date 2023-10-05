@@ -51,11 +51,6 @@ Socials.prototype.animate = function() {
         autoAlpha: 1,
         scale: 0,
     })
-    .to(this.path, {
-        strokeDashoffset: 0,
-        ease: Sine.easeInOut,
-        duration: 0.9,
-    })
     .to(this.socials, {
         top: () => this.startPosition().top + gsap.utils.random(-3, 3),
         left: () => this.startPosition().left + gsap.utils.random(-3, 3),
@@ -63,7 +58,11 @@ Socials.prototype.animate = function() {
         scale: 1,
         stagger: 0.05,
         duration: 0.4,
-        ease: Sine.easeInOut
+        ease: Sine.easeInOut,
+        stagger: {
+            from: "center",
+            each: 0.07
+        }
     }, "<")
     .to(this.socials, {
         delay: 0.4,
@@ -74,9 +73,15 @@ Socials.prototype.animate = function() {
         duration: 0.6,
         stagger: {
             from: "center",
-            each: 0.07
+            each: 0.06
         }
-    }, "<17%")
+    }, "-=1")
+    .to(this.path, {
+        strokeDashoffset: 0,
+        strokeDasharray: this.path.getTotalLength(),
+        ease: Circ.easeInOut,
+        duration: 0.9,
+    }, "-=0.65")
 }
 
 const socials = new Socials()

@@ -83,6 +83,6 @@ section {
 }
 
 .arc .path {
-    stroke-dashoffset: 1751.7978515625;
-    stroke-dasharray: 1751.7978515625;
+    stroke-dasharray: 0 1751.7978515625;
+    stroke-dashoffset: -875.5;
 }
