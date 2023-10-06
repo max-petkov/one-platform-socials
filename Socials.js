@@ -54,6 +54,7 @@ Socials.prototype.animate = function () {
     width: (i) => this.endPosition()[i].width,
     height: (i) => this.endPosition()[i].height,
     autoAlpha: 0,
+    scale: 0.5,
     // scale: 0.5,
   })
     // .to(
@@ -74,7 +75,7 @@ Socials.prototype.animate = function () {
     //   "<"
     // )
     .to(this.socials, {
-      // scale:1,
+      scale:1,
       autoAlpha: 1,
       duration: 0.5,
       ease: Expo.easeInOut,
