@@ -42,49 +42,28 @@ Socials.prototype.getRotation = function (rect) {
   return degree;
 };
 
-Socials.prototype.magnetic = function() {
-
-}
+Socials.prototype.magnetic = function () {};
 
 Socials.prototype.animate = function () {
   this.tl
-  .set(this.socials, {
-    top: () => this.startPosition().top,
-    left: () => this.startPosition().left,
-    width: (i) => this.endPosition()[i].width,
-    height: (i) => this.endPosition()[i].height,
-    autoAlpha: 0,
-    scale: 0.5,
-    // scale: 0.5,
-  })
-    // .to(
-    //   this.socials,
-    //   {
-    //     top: () => this.startPosition().top + gsap.utils.random(-3, 3),
-    //     left: () => this.startPosition().left + gsap.utils.random(-3, 3),
-    //     autoAlpha: 1,
-    //     scale: 1,
-    //     stagger: 0.05,
-    //     duration: 0.4,
-    //     ease: Sine.easeInOut,
-    //     stagger: {
-    //       from: "center",
-    //       each: 0.07,
-    //     },
-    //   },
-    //   "<"
-    // )
+    .set(this.socials, {
+      top: () => this.startPosition().top,
+      left: () => this.startPosition().left,
+      width: (i) => this.endPosition()[i].width,
+      height: (i) => this.endPosition()[i].height,
+      autoAlpha: 0,
+      scale: 0.5,
+    })
     .to(this.socials, {
-      scale:1,
+      scale: 1,
       autoAlpha: 1,
       duration: 0.5,
       ease: Expo.easeInOut,
-      stagger: 0.1
+      stagger: 0.1,
     })
     .to(
       this.socials,
       {
-        // autoAlpha: 1,
         delay: 0.4,
         top: (i) => this.endPosition()[i].top,
         left: (i) => this.endPosition()[i].left,
@@ -93,7 +72,6 @@ Socials.prototype.animate = function () {
         duration: 0.8,
         stagger: {
           from: "center",
-          each: 0.06,
         },
       },
       "-=1.1"
