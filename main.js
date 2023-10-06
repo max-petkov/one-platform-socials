@@ -1,3 +1,5 @@
+// Add Magnetic
+
 const socials = new Socials()
 socials.animate();
 
