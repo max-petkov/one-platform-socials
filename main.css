@@ -61,7 +61,7 @@ section {
 .social:nth-child(1){ z-index: 0;}
 .social:nth-child(2){ z-index: 1;}
 .social:nth-child(3){ z-index: 2;}
-.social:nth-child(4){ z-index: 3;}
+.social:nth-child(4){ z-index: 4;}
 .social:nth-child(5){ z-index: 3;}
 .social:nth-child(6){ z-index: 2;}
 .social:nth-child(7){ z-index: 1;}

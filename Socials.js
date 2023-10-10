@@ -42,29 +42,27 @@ Socials.prototype.getRotation = function (rect) {
   return degree;
 };
 
-Socials.prototype.magnetic = function () {};
-
 Socials.prototype.animate = function () {
   this.tl
     .set(this.socials, {
-      top: () => this.startPosition().top,
-      left: () => this.startPosition().left,
+      top: this.startPosition().top,
+      left: this.startPosition().left,
       width: (i) => this.endPosition()[i].width,
       height: (i) => this.endPosition()[i].height,
-      autoAlpha: 0,
-      scale: 0.5,
+      autoAlpha: (i) => i !== 3 ? 0 : 1,
     })
     .to(this.socials, {
-      scale: 1,
       autoAlpha: 1,
-      duration: 0.5,
-      ease: Expo.easeInOut,
-      stagger: 0.1,
+      duration: 1,
+      ease: Sine.easeInOut,
+      stagger: {
+        from: "center",
+        each: 0.05,
+      },
     })
     .to(
       this.socials,
       {
-        delay: 0.4,
         top: (i) => this.endPosition()[i].top,
         left: (i) => this.endPosition()[i].left,
         rotate: (i) => this.endPosition()[i].rotate,
@@ -73,70 +71,15 @@ Socials.prototype.animate = function () {
         stagger: {
           from: "center",
         },
-      },
-      "-=1.1"
-    )
+      },"<")
     .to(
       this.path,
       {
         strokeDashoffset: 0,
         strokeDasharray: this.path.getTotalLength(),
-        ease: Circ.easeInOut,
+        ease: Expo.easeInOut,
         duration: 0.9,
       },
-      "-=0.65"
+      "-=0.9"
     );
 };
-// Socials.prototype.animate = function () {
-//   this.tl.set(this.socials, {
-//     top: () => this.startPosition().top + 256,
-//     left: () => this.startPosition().left + gsap.utils.random(-128, 128),
-//     width: (i) => this.endPosition()[i].width,
-//     height: (i) => this.endPosition()[i].height,
-//     autoAlpha: 1,
-//     scale: 0,
-//   })
-//     .to(
-//       this.socials,
-//       {
-//         top: () => this.startPosition().top + gsap.utils.random(-3, 3),
-//         left: () => this.startPosition().left + gsap.utils.random(-3, 3),
-//         autoAlpha: 1,
-//         scale: 1,
-//         stagger: 0.05,
-//         duration: 0.4,
-//         ease: Sine.easeInOut,
-//         stagger: {
-//           from: "center",
-//           each: 0.07,
-//         },
-//       },
-//       "<"
-//     )
-//     .to(
-//       this.socials,
-//       {
-//         delay: 0.4,
-//         top: (i) => this.endPosition()[i].top,
-//         left: (i) => this.endPosition()[i].left,
-//         rotate: (i) => this.endPosition()[i].rotate,
-//         ease: Sine.easeInOut,
-//         duration: 0.6,
-//         stagger: {
-//           from: "center",
-//           each: 0.06,
-//         },
-//       },
-//       "-=1"
-//     )
-//     .to(
-//       this.path,
-//       {
-//         strokeDashoffset: 0,
-//         strokeDasharray: this.path.getTotalLength(),
-//         ease: Circ.easeInOut,
-//         duration: 0.9,
-//       },
-//       "-=0.65"
-//     );
-// };
